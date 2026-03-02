@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub PWA Demo</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#317EFB"/>
+</head>
+<body>
+    <h1>PWA 範例專案</h1>
+    <p>此專案可直接部署到 GitHub Pages。</p>
+
+    <button onclick="showMessage()">測試按鈕</button>
+
+    <script>
+        function showMessage() {
+            alert("PWA 運作正常！");
+        }
+
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('./service-worker.js')
+            .then(() => console.log('Service Worker 註冊成功'))
+            .catch(err => console.log('Service Worker 註冊失敗', err));
+        }
+    </script>
+</body>
+</html>
